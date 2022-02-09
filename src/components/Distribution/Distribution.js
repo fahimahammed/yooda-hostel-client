@@ -57,10 +57,10 @@ const Distribution = () => {
         };
 
         const serveFoodData = (data, serveData) => {
-            console.log(data.length);
+            //console.log(data.length);
             if(data.length > 0) {
                 alert("Already Served!")
-                console.log("ok vaia");
+                //console.log("done");
             }
             else{
                 const url = `https://gentle-cove-54714.herokuapp.com/add-distribution`;
