@@ -8,3 +8,10 @@ cd yooda-hostel-client
 npm install
 ```
 
+## Technology
+<li>JavaScript</li>
+<li>React js</li>
+<li>Bootstrap</li>
+<li>HTML</li>
+<li>CSS</li>
+
