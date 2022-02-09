@@ -19,7 +19,7 @@ const ShowStudents = () => {
     },[])
 
     const loadFoodData = (pageNum) =>{
-        fetch(`http://localhost:3001/students?page=${pageNum}&limit=2`)
+        fetch(`https://gentle-cove-54714.herokuapp.com/students?page=${pageNum}&limit=5`)
         .then(res => res.json())
         .then(data => setStudentData(data))
     }
@@ -38,7 +38,7 @@ const ShowStudents = () => {
 
     const handleUpdate = () => {
         
-        fetch(`http://localhost:3001/update-status`,{
+        fetch(`https://gentle-cove-54714.herokuapp.com/update-status`,{
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(editedStudentData)
@@ -50,8 +50,8 @@ const ShowStudents = () => {
     
     return (
         <div>
-            <h1 className="pt-3">Student List</h1>
-            <hr className="pb-3"/>
+            <h1 className="pt-3 text-primary">Student List</h1>
+            <hr className="pb-2"/>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -79,7 +79,7 @@ const ShowStudents = () => {
             </table>
 
             {
-                studentData && <button  onClick={handleUpdate} className="btn btn-outline-dark my-3"type="submit">Marked Status Change</button>
+                studentData && <button  onClick={handleUpdate} className="btn btn-outline-dark mt-3 mb-5"type="submit">Marked Status Change</button>
             }
             
 

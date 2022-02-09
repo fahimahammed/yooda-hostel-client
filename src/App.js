@@ -15,17 +15,19 @@ import NavBar from "./components/NavBar/NavBar";
 function App() {
   return (
     <BrowserRouter>
-       <div className="container">
-       <NavBar/> 
-      <Routes>
-      
-        <Route path="/" element={<AddFoodItem/>} />
-        <Route path="a" element={<ShowFoodItems />} />
-        <Route path="c" element={<AddStudent />} />
-        <Route path="students" element={<ShowStudents />} />
-        <Route path="d" element={<Distribution />} />
-        
-      </Routes>
+       <div>
+        <NavBar/> 
+        <div className="container">
+          <Routes className="container">
+          
+            <Route path="addFoodItem" element={<AddFoodItem/>} />
+            <Route path="foodItems" element={<ShowFoodItems />} />
+            <Route path="/" element={<AddStudent />} />
+            <Route path="students" element={<ShowStudents />} />
+            <Route path="distributionForm" element={<Distribution />} />
+            
+          </Routes>
+        </div>
        </div>
       
     </BrowserRouter>

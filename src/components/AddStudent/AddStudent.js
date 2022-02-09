@@ -17,7 +17,7 @@ const AddStudent = () => {
         }
         //console.log(newStudent)
 
-        const url = `http://localhost:3001/add-student`;
+        const url = `https://gentle-cove-54714.herokuapp.com/add-student`;
 
         fetch(url, { 
             method: 'POST',
@@ -31,7 +31,7 @@ const AddStudent = () => {
 
     return (
         <div>
-            <h1>Add New Student</h1>
+            <h1 className="text-primary">Add New Student</h1>
             <hr/>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="row py-3">
@@ -72,7 +72,7 @@ const AddStudent = () => {
                     <div className="col">
                         <h5>Status</h5>
                         <div className="btn-group">
-                            <button type="button" className="btn btn-primary text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button type="button" className="btn btn-outline-primary text-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                                 {status}
                             </button>
                             <ul  className="dropdown-menu">
@@ -83,7 +83,7 @@ const AddStudent = () => {
                     </div>
                 </div>
         
-                <input className="btn btn-success my-4" type="submit" />
+                <input className="btn btn-primary my-4" type="submit" />
             </form>
         </div>
     );

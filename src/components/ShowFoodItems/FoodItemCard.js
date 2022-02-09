@@ -7,10 +7,10 @@ const FoodItemCard = ({item}) => {
     const [editedPrice, setEditedPrice] = useState(price);
 
     const deleteProduct = id =>{
-        fetch(`http://localhost:3001/delete-item/${id}`, {
+        fetch(`https://gentle-cove-54714.herokuapp.com/delete-item/${id}`, {
             method: 'DELETE'
         })
-        .then(res => alert("Successfully deleted.."))
+        .then(res => alert("Successfully deleted! Please reload this page."))
     }
 
     const updateProduct = (id) =>{
@@ -22,7 +22,7 @@ const FoodItemCard = ({item}) => {
             name: editedName,
             price: editedPrice
         };
-        fetch(`http://localhost:3001/update/${id}`,{
+        fetch(`https://gentle-cove-54714.herokuapp.com/update/${id}`,{
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updateItem)

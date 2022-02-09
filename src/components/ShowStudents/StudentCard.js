@@ -14,7 +14,7 @@ const StudentCard = ({student}) => {
 
 
     const deleteProduct = id =>{
-        fetch(`http://localhost:3001/delete-student/${id}`, {
+        fetch(`https://gentle-cove-54714.herokuapp.com/delete-student/${id}`, {
             method: 'DELETE'
         })
         .then(res => alert("Successfully deleted.."))
@@ -34,7 +34,7 @@ const StudentCard = ({student}) => {
             status: editedStatus
             
         };
-        fetch(`http://localhost:3001/update-student/${id}`,{
+        fetch(`https://gentle-cove-54714.herokuapp.com/update-student/${id}`,{
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(updateStudent)

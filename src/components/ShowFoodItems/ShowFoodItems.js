@@ -17,7 +17,7 @@ const ShowFoodItems = () => {
     },[])
 
     const loadFoodData = (pageNum) =>{
-        fetch(`http://localhost:3001/food-items?page=${pageNum}&limit=2`)
+        fetch(`https://gentle-cove-54714.herokuapp.com/food-items?page=${pageNum}&limit=5`)
         .then(res => res.json())
         .then(data => setFoodData(data))
     }
@@ -28,8 +28,8 @@ const ShowFoodItems = () => {
     
     return (
         <div>
-            <h1 className="py-3">Food Item(s)</h1>
-            <hr className="py-3"/>
+            <h1 className="py-3 text-primary">Food Item(s)</h1>
+            <hr className="pb-2"/>
             <table className="table table-striped">
                 <thead>
                     <tr>
@@ -47,7 +47,7 @@ const ShowFoodItems = () => {
             </table>
             
 
-            <div className="d-flex justify-content-between mt-5">
+            <div className="d-flex justify-content-between my-5">
                 {
                     foodData.previous && <button onClick = {() => handlePage(previousPage)} className="btn btn-primary">  Previous Page</button>
                 }

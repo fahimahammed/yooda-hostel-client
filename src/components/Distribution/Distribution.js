@@ -17,7 +17,7 @@ const Distribution = () => {
     }
 
     const loadData = () =>{
-        fetch(`http://localhost:3001/student/${searchRoll}`)
+        fetch(`https://gentle-cove-54714.herokuapp.com/student/${searchRoll}`)
         .then(res => res.json())
         .then(data => setSearchStudent(data));
     }
@@ -36,7 +36,7 @@ const Distribution = () => {
     }
 
     useEffect(()=>{
-        fetch("http://localhost:3001/foodlist")
+        fetch("https://gentle-cove-54714.herokuapp.com/foodlist")
         .then(res => res.json())
         .then(data => setFoodList(data))
     })
@@ -50,7 +50,7 @@ const Distribution = () => {
                 foodItemList : selectFoodList
             }
 
-            fetch(`http://localhost:3001/distribution/${dateFormat}/${searchStudent._id}/${shift}`)
+            fetch(`https://gentle-cove-54714.herokuapp.com/distribution/${dateFormat}/${searchStudent._id}/${shift}`)
             .then(res => res.json())
             .then(data => serveFoodData(data, serveData));
 
@@ -63,7 +63,7 @@ const Distribution = () => {
                 console.log("ok vaia");
             }
             else{
-                const url = `http://localhost:3001/add-distribution`;
+                const url = `https://gentle-cove-54714.herokuapp.com/add-distribution`;
     
                 fetch(url, { 
                     method: 'POST',
@@ -79,8 +79,8 @@ const Distribution = () => {
 
     return (
         <div className="pb-5 mb-5 row">
-            <h1 className="py-3">Food Distribution Form</h1>
-            <hr className="pb-3 mb-3"/>
+            <h1 className="py-3 text-primary">Food Distribution Form</h1>
+            <hr className="pb-2"/>
 
             <div className="col-md-3">
                 <h5>Enter Student Roll no: </h5>
@@ -98,8 +98,9 @@ const Distribution = () => {
 
             <div className="col-md-3">
                 <div>
-                    <h5 className="py-3">Date: {dateFormat}</h5>
-                    <div className="btn-group my-3">
+                    <h4 className="pb-3">Date: {dateFormat}</h4>
+                    <h4 className="pt-3">Select Shift</h4>
+                    <div className="btn-group mb-3">
                         <button type="button" className="btn btn-primary text-white dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             {shift}
                         </button>
@@ -111,7 +112,8 @@ const Distribution = () => {
                     </div>
                     
 
-                    <h4 className="py-3">Food List</h4>
+                    <h4 className="pt-3">Food List</h4>
+                    <p className="text-secondary pb-3">(Select foods by click on food name)</p>
                     {
                         foodList && foodList.map(food => <li className="btn btn-outline-dark my-2 me-1" onClick={()=>selectItem(food.name)}>{food.name}</li>)
                     }
@@ -122,7 +124,7 @@ const Distribution = () => {
             </div>
 
             <div className="col-md-2">
-                <h5 className="pb-2">Selected Food</h5>
+                <h4 className="pb-2">Selected Food</h4>
                 <hr/>
                 {
                     selectFoodList && selectFoodList.map(food => <li>{food}</li>)
