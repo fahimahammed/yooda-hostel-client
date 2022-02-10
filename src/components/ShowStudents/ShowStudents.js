@@ -34,18 +34,20 @@ const ShowStudents = () => {
         activeObj.status = activeObj.status == "Active" ? "inActive" : "Active"; 
         setEditedStudentData([...editedStudentData, activeObj]);
     }
-    console.log(editedStudentData);
+    //console.log(editedStudentData);
 
     const handleUpdate = () => {
-        
-        fetch(`https://gentle-cove-54714.herokuapp.com/update-status`,{
+        //console.log(editedStudentData);
+        editedStudentData.map(item => {
+            fetch(`https://gentle-cove-54714.herokuapp.com/update-status/${item._id}`,{
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(editedStudentData)
+            body: JSON.stringify(item)
         })
         .then(res => res.json())
-        .then(data => alert("Status Updated! Please reload this page and see updated result."))
-        
+        .then(data => console.log(data))
+        })
+        alert("Data Updated Successfully! Please reload this page.");
     }
     
     return (
